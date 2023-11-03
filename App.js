@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -30,94 +31,95 @@ function HomeScreen({ navigation }) {
 
   );
 }
-  //DETAILS SCREEN
-function DetailsScreen({navigation}) {
+//DETAILS SCREEN
+function DetailsScreen({ navigation }) {
   return (
     <ScrollView style={styles.details}>
       <Text style={styles.text}>Welcome To FOODieApp</Text>
       <Text style={styles.small}>Order your delicious meal here</Text>
-      <Image style={styles.img} source={require('../FOODieApp/assets/food.jpg')}/>
+      <Image style={styles.img} source={require('../FOODieApp/assets/food.jpg')} />
 
       <Text style={styles.spam}>Meals Available Today</Text>
-        <View style={styles.container}>
-          <TouchableOpacity onPress={() => navigation.navigate("Waakye")}><Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image></TouchableOpacity>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate("Waakye")}><Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image></TouchableOpacity>
 
 
 
 
 
 
-        <Image style={styles.pic} source={require('../FOODieApp/assets/beans.jpeg')}></Image>
+        <TouchableOpacity onPress={() => navigation.navigate("Beans")}><Image style={styles.pic} source={require('../FOODieApp/assets/beans.jpeg')}></Image></TouchableOpacity>
 
-        </View>
+      </View>
 
-        <View style={styles.container}>
+      <View style={styles.container}>
         <Image style={styles.pic} source={require('../FOODieApp/assets/banku.jpeg')}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/okro.jpeg')}></Image>
 
-        </View>
-        <View style={styles.container}>
+      </View>
+      <View style={styles.container}>
         <Image style={styles.pic} source={require('../FOODieApp/assets/plantain.jpeg')}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/kenkey.jpeg')}></Image>
 
-        </View>
-        <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/sweet.jpeg')} onPress={()=>console.log("hi")}></Image>
+      </View>
+      <View style={styles.container}>
+        <Image style={styles.pic} source={require('../FOODieApp/assets/sweet.jpeg')} onPress={() => console.log("hi")}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/rice.jpeg')}></Image>
 
-        </View>
-        <View style={styles.container}>
+      </View>
+      <View style={styles.container}>
         <Image style={styles.pic} source={require('../FOODieApp/assets/koko.jpeg')}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/yam.jpeg')}></Image>
 
-        </View>
-        <View style={styles.container}>
+      </View>
+      <View style={styles.container}>
         <Image style={styles.pic} source={require('../FOODieApp/assets/fish.jpeg')}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/khebab.jpeg')}></Image>
 
-        </View>
+      </View>
     </ScrollView>
   );
 }
 
-function WaakyeScreen({navigation}) {
+function WaakyeScreen({ navigation }) {
 
-  return(
+  return (
     <View style={styles.food}>
-      <Image style={styles.waakye} source={require("../FOODieApp/assets/waakye.jpeg")}/>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/waakye.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL WAAKYE</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <TouchableOpacity
+      </Text>
+      <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Details")}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
       >
-        <Text style={styles.appText}>Continue</Text>
-
-      </TouchableOpacity> */}
-
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
     </View>
-    
-    
-    
-    
-    )
-  
+  )
 }
 
+function BeansScreen({ navigation }) {
 
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/beans.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL WAAKYE</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+//STACK SCREEN
 
 const Stack = createNativeStackNavigator();
 
@@ -136,7 +138,7 @@ function App() {
             headerTitleStyle: {
               fontSize: 30,
               fontWeight: "bold",
-              color:"#fff"
+              color: "#fff"
             },
           }}
         />
@@ -145,12 +147,12 @@ function App() {
           options={
             {
               title: "Main Screen",
-              headerStyle:{
-                backgroundColor:"#232D3F",
-                color:"#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+                color: "#fff",
               },
-              headerTitleStyle:{
-                color:"#fff"
+              headerTitleStyle: {
+                color: "#fff"
               }
             }
           }
@@ -160,20 +162,54 @@ function App() {
           options={
             {
               title: "WAAKYE",
-              color:"#fff",
-              headerStyle:{
-                backgroundColor:"#232D3F",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
               },
-              headerTitleStyle:{
-                color:"#fff"
+              headerTitleStyle: {
+                color: "#fff"
               }
             }
           }
         />
+        <Stack.Screen name="Beans"
+          component={BeansScreen}
+          options={
+            {
+              title: "Beans",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,72 +259,108 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     top: 150,
     fontSize: 20,
-    color:"#fff",
+    color: "#fff",
     fontWeight: "bold",
   },
 
-  text:{
-    top:50,
+  text: {
+    top: 50,
   },
-  details:{
-    flexGrow:1,
-    flex:1,
-    backgroundColor:"#232D3F",
-  },
-
-  text:{
-    fontSize:30,
-    top:20,
-    fontWeight:'bold',
-    alignSelf:"center",
-    color:"#ffff",
+  details: {
+    flexGrow: 1,
+    flex: 1,
+    backgroundColor: "#232D3F",
   },
 
-  img:{
-    width:340,
-    height:200,
-    alignSelf:"center",
-    top:50,
-    borderRadius:20,
-    borderWidth:3,
-    borderColor:"#fff"
-  },
-  small:{
-    alignSelf:"center",
-    top:25,
-    color:"#fff",
-    fontWeight:"bold",
+  text: {
+    fontSize: 30,
+    top: 20,
+    fontWeight: 'bold',
+    alignSelf: "center",
+    color: "#ffff",
   },
 
-  spam:{
-    alignSelf:"center",
-    color:"#fff",
-    top:70,
+  img: {
+    width: 340,
+    height: 200,
+    alignSelf: "center",
+    top: 50,
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: "#fff"
   },
-  container:{
-    flexDirection:"row",
-    justifyContent:"space-around",
-    marginBottom:30,    
+  small: {
+    alignSelf: "center",
+    top: 25,
+    color: "#fff",
+    fontWeight: "bold",
   },
 
-  pic:{
-    width:180,
-    height:130,
-    top:100,
-    borderRadius:10,
-    borderWidth:3,
-    borderColor:"#fff",
+  spam: {
+    alignSelf: "center",
+    color: "#fff",
+    top: 70,
+  },
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 30,
+  },
+
+  pic: {
+    width: 180,
+    height: 130,
+    top: 100,
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#fff",
 
   },
-  food:{
-    flex:1,
-    alignSelf:"center",
-    backgroundColor:"#232D3F"
+  food: {
+    flex: 1,
+    alignSelf: "center",
+    backgroundColor: "#232D3F"
 
   },
-  waakye:{
-    width:415,
-    height:300,    
+  waakye: {
+    width: 415,
+    height: 300,
+  },
+
+  daavi: {
+    color: "#ffd700",
+    alignSelf: "center",
+    top: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  lorem: {
+    top: 80,
+    fontSize: 16,
+    color: "#fff",
+    justifyContent: "center",
+    textAlign: "justify",
+
+  },
+  appText: {
+    fontSize: 22,
+    color: "#000",
+    fontWeight: "bold",
+    alignSelf: "center",
+    top: 6,
+    textTransform: "uppercase",
+  },
+  button: {
+    top: 220,
+    alignItems: "center",
+    alignSelf: "center",
+    elevation: 8,
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: 400,
+    height: 60,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
   }
 });
 
