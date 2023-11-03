@@ -7,11 +7,10 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Pressable,
-  Alert,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { PageScrollView } from "pagescrollview";
 
 //NAVIGATION SCREEN
 
@@ -41,14 +40,14 @@ function DetailsScreen({navigation}) {
       <Image style={styles.img} source={require('../FOODieApp/assets/food.jpg')}/>
 
       <Text style={styles.spam}>Meals Available Today</Text>
-      <Pressable onPress={() => navigation.navigate("Details")} >
-        <Image 
-          source={require("../FOODieApp/assets/burger.png")}
-          style={styles.image}
-        />
-      </Pressable>
         <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image>
+          <TouchableOpacity onPress={() => navigation.navigate("Waakye")}><Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image></TouchableOpacity>
+
+
+
+
+
+
         <Image style={styles.pic} source={require('../FOODieApp/assets/beans.jpeg')}></Image>
 
         </View>
@@ -78,11 +77,22 @@ function DetailsScreen({navigation}) {
         <Image style={styles.pic} source={require('../FOODieApp/assets/khebab.jpeg')}></Image>
 
         </View>
-
-
     </ScrollView>
   );
 }
+
+function WaakyeScreen({navigation}) {
+
+  return(
+    <View style={styles.food}>
+      <Image source={require("../FOODieApp/assets/waakye.jpeg")}/>
+
+    </View>
+    )
+  
+}
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -106,6 +116,18 @@ function App() {
         />
         <Stack.Screen name="Details"
           component={DetailsScreen}
+          options={
+            {
+              title: "Main Screen",
+              color:"#fff",
+              headerStyle:{
+                backgroundColor:"#232D3F",
+              }
+            }
+          }
+        />
+        <Stack.Screen name="Waakye"
+          component={WaakyeScreen}
           options={
             {
               title: "Main Screen",
@@ -177,6 +199,7 @@ const styles = StyleSheet.create({
     top:50,
   },
   details:{
+    flexGrow:1,
     flex:1,
     backgroundColor:"#232D3F",
   },
@@ -217,8 +240,8 @@ marginBottom:30,
   },
 
   pic:{
-    width:170,
-    height:120,
+    width:180,
+    height:130,
     top:100,
     borderRadius:10,
     borderWidth:3,
