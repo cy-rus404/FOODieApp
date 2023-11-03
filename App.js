@@ -41,12 +41,12 @@ function DetailsScreen({navigation}) {
       <Image style={styles.img} source={require('../FOODieApp/assets/food.jpg')}/>
 
       <Text style={styles.spam}>Meals Available Today</Text>
-      {/* <Pressable onPress={() => navigation.navigate("Details")} >
+      <Pressable onPress={() => navigation.navigate("Details")} >
         <Image 
           source={require("../FOODieApp/assets/burger.png")}
           style={styles.image}
         />
-      </Pressable> */}
+      </Pressable>
         <View style={styles.container}>
         <Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image>
         <Image style={styles.pic} source={require('../FOODieApp/assets/beans.jpeg')}></Image>
@@ -120,6 +120,8 @@ function App() {
     </NavigationContainer>
   );
 }
+
+
 
 //STYLES
 const styles = StyleSheet.create({
