@@ -42,14 +42,7 @@ function DetailsScreen({ navigation }) {
       <Text style={styles.spam}>Meals Available Today</Text>
       <View style={styles.container}>
         <TouchableOpacity onPress={() => navigation.navigate("Waakye")}><Image style={styles.pic} source={require('../FOODieApp/assets/waakye.jpeg')}></Image></TouchableOpacity>
-
-
-
-
-
-
         <TouchableOpacity onPress={() => navigation.navigate("Beans")}><Image style={styles.pic} source={require('../FOODieApp/assets/beans.jpeg')}></Image></TouchableOpacity>
-
       </View>
 
       <View style={styles.container}>
