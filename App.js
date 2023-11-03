@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { PageScrollView } from "pagescrollview";
 
 //NAVIGATION SCREEN
 
@@ -85,9 +84,35 @@ function WaakyeScreen({navigation}) {
 
   return(
     <View style={styles.food}>
-      <Image source={require("../FOODieApp/assets/waakye.jpeg")}/>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/waakye.jpeg")}/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Details")}
+      >
+        <Text style={styles.appText}>Continue</Text>
+
+      </TouchableOpacity> */}
 
     </View>
+    
+    
+    
+    
     )
   
 }
@@ -111,6 +136,7 @@ function App() {
             headerTitleStyle: {
               fontSize: 30,
               fontWeight: "bold",
+              color:"#fff"
             },
           }}
         />
@@ -119,9 +145,12 @@ function App() {
           options={
             {
               title: "Main Screen",
-              color:"#fff",
               headerStyle:{
                 backgroundColor:"#232D3F",
+                color:"#fff",
+              },
+              headerTitleStyle:{
+                color:"#fff"
               }
             }
           }
@@ -130,10 +159,13 @@ function App() {
           component={WaakyeScreen}
           options={
             {
-              title: "Main Screen",
+              title: "WAAKYE",
               color:"#fff",
               headerStyle:{
                 backgroundColor:"#232D3F",
+              },
+              headerTitleStyle:{
+                color:"#fff"
               }
             }
           }
@@ -236,7 +268,7 @@ const styles = StyleSheet.create({
   container:{
     flexDirection:"row",
     justifyContent:"space-around",
-marginBottom:30,    
+    marginBottom:30,    
   },
 
   pic:{
@@ -247,6 +279,16 @@ marginBottom:30,
     borderWidth:3,
     borderColor:"#fff",
 
+  },
+  food:{
+    flex:1,
+    alignSelf:"center",
+    backgroundColor:"#232D3F"
+
+  },
+  waakye:{
+    width:415,
+    height:300,    
   }
 });
 
