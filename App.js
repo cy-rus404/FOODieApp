@@ -2,17 +2,17 @@ import * as React from "react";
 import {
   View,
   Text,
-  Button,
   ScrollView,
   StyleSheet,
   Image,
   TouchableOpacity,
   Linking,
+  ActivityIndicator,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-//NAVIGATION SCREEN
+                                                      //NAVIGATION SCREEN
 
 function HomeScreen({ navigation }) {
   return (
@@ -31,7 +31,7 @@ function HomeScreen({ navigation }) {
 
   );
 }
-//DETAILS SCREEN
+                                                        //DETAILS SCREEN
 function DetailsScreen({ navigation }) {
   return (
     <ScrollView style={styles.details}>
@@ -46,34 +46,34 @@ function DetailsScreen({ navigation }) {
       </View>
 
       <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/banku.jpeg')}></Image>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/okro.jpeg')}></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Banku")}><Image style={styles.pic} source={require('../FOODieApp/assets/banku.jpeg')}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Okro")}><Image style={styles.pic} source={require('../FOODieApp/assets/okro.jpeg')}></Image></TouchableOpacity>
 
       </View>
       <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/plantain.jpeg')}></Image>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/kenkey.jpeg')}></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Plantain")}><Image style={styles.pic} source={require('../FOODieApp/assets/plantain.jpeg')}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Kenkey")}><Image style={styles.pic} source={require('../FOODieApp/assets/kenkey.jpeg')}></Image></TouchableOpacity>
 
       </View>
       <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/sweet.jpeg')} onPress={() => console.log("hi")}></Image>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/rice.jpeg')}></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Sweet")}><Image style={styles.pic} source={require('../FOODieApp/assets/sweet.jpeg')}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Rice")}><Image style={styles.pic} source={require('../FOODieApp/assets/rice.jpeg')}></Image></TouchableOpacity>
 
       </View>
       <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/koko.jpeg')}></Image>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/yam.jpeg')}></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Koko")}><Image style={styles.pic} source={require('../FOODieApp/assets/koko.jpeg')}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Yam")}><Image style={styles.pic} source={require('../FOODieApp/assets/yam.jpeg')}></Image></TouchableOpacity>
 
       </View>
       <View style={styles.container}>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/fish.jpeg')}></Image>
-        <Image style={styles.pic} source={require('../FOODieApp/assets/khebab.jpeg')}></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Fish")}><Image style={styles.pic} source={require('../FOODieApp/assets/fish.jpeg')}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Khebab")}><Image style={styles.pic} source={require('../FOODieApp/assets/khebab.jpeg')}></Image></TouchableOpacity>
 
       </View>
     </ScrollView>
   );
 }
-
+                                                          //SCREENS
 function WaakyeScreen({ navigation }) {
 
   return (
@@ -98,7 +98,115 @@ function BeansScreen({ navigation }) {
   return (
     <View style={styles.food}>
       <Image style={styles.waakye} source={require("../FOODieApp/assets/beans.jpeg")} />
-      <Text style={styles.daavi}>DAAVI'S SPECIAL WAAKYE</Text>
+      <Text style={styles.daavi}>DAAVI'S SPECIAL BEANS</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function BankuScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/banku.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL BANKU</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function OkroScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/okro.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL OKRO</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function PlantainScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/plantain.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL PLANTAIN</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function KenkeyScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/kenkey.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL KENKEY</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function SweetScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/sweet.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL YOGHURT</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function RiceScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/rice.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL FRIED RICE</Text>
       <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
 
       </Text>
@@ -112,7 +220,80 @@ function BeansScreen({ navigation }) {
   )
 }
 
-//STACK SCREEN
+function KokoScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/koko.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL KOOKO</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function YamScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/yam.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL YAM</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function FishScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/fish.jpeg")} />
+      <Text style={styles.daavi}>DAAVI'S SPECIAL TILAPIA</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+function KhebabScreen({ navigation }) {
+
+  return (
+    <View style={styles.food}>
+      <Image style={styles.waakye} source={require("../FOODieApp/assets/khebab.jpeg")} />
+      <Text style={styles.daavi}>ABOTSI'S SPECIAL KHEBAB</Text>
+      <Text style={styles.lorem}>Aliquip adipisicing veniam esse aliquip anim. Exercitation nostrud irure in aliqua consectetur sit qui cillum. Nisi ullamco labore sit excepteur do veniam id pariatur exercitation id deserunt deserunt ea. Quis proident eiusmod commodo magna sit excepteur tempor esse laboris consectetur aliqua velit deserunt in. Veniam adipisicing eiusmod ut occaecat elit aliqua ut non exercitation ea.
+
+      </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => { Linking.openURL('tel:0279281332'); }}
+      >
+        <Text onPress={() => { Linking.openURL('tel:0279281332'); }} style={styles.appText}>CALL TO ORDER</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+                                                        //STACK SCREEN
 
 const Stack = createNativeStackNavigator();
 
@@ -180,6 +361,158 @@ function App() {
             }
           }
         />
+                <Stack.Screen name="Banku"
+          component={BankuScreen}
+          options={
+            {
+              title: "Banku",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Okro"
+          component={OkroScreen}
+          options={
+            {
+              title: "Okro Stew",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Plantain"
+          component={PlantainScreen}
+          options={
+            {
+              title: "Plantain",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+
+<Stack.Screen name="Kenkey"
+          component={KenkeyScreen}
+          options={
+            {
+              title: "Plantain",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Sweet"
+          component={SweetScreen}
+          options={
+            {
+              title: "Sweet",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Rice"
+          component={RiceScreen}
+          options={
+            {
+              title: "Rice",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Koko"
+          component={KokoScreen}
+          options={
+            {
+              title: "Koko",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Yam"
+          component={YamScreen}
+          options={
+            {
+              title: "Yam",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+<Stack.Screen name="Fish"
+          component={FishScreen}
+          options={
+            {
+              title: "Yam",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+        <Stack.Screen name="Khebab"
+          component={KhebabScreen}
+          options={
+            {
+              title: "Khebab",
+              color: "#fff",
+              headerStyle: {
+                backgroundColor: "#232D3F",
+              },
+              headerTitleStyle: {
+                color: "#fff"
+              }
+            }
+          }
+        />
+
 
       </Stack.Navigator>
     </NavigationContainer>
@@ -187,26 +520,7 @@ function App() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//STYLES
+                                                  //STYLES
 const styles = StyleSheet.create({
   txt: {
     width: 360,
